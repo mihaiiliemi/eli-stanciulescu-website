@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Elisabeta Stănciulescu — Artist Plastic">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Artist Plastic · Membră UAP România</p>
+      <h1 class="hero-name">Elisabeta<br>Stănciulescu</h1>
+      <p class="hero-years">1950 — 2022</p>
+      <a href="/galerie" class="btn-outline">Descoperă lucrările</a>
+    </div>
+    <div class="hero-painting">
+      <div class="rama">
+        <img src="/images/DSC_0055.jpg" alt="Lucrare de Elisabeta Stănciulescu" />
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <span class="section-label">Despre artistă</span>
+    <blockquote>„Îmi doresc să pictez până la 101 ani."</blockquote>
+    <p>Pictoriță, profesoară și membră a Uniunii Artiștilor Plastici din România, Elisabeta Stănciulescu a dedicat o viață întreagă culorii și formei. Lucrările ei — ulei și acrilic pe pânză — poartă energia naturii văzută prin ochii unui spirit liber, între figurativ și abstract.</p>
+    <a href="/despre" class="intro-link">Citește povestea ei →</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GALERIE PREVIEW -->
+  <section class="gallery-preview">
+    <span class="section-label" style="text-align:center; display:block;">Opera</span>
+    <h2 class="section-title" style="text-align:center;">Lucrări selectate</h2>
+    <div class="gallery-grid">
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/17 DSC_0055.jpg" alt="Păpădii Marțiene" loading="lazy" />
+      </a>
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/68 zbor.jpg" alt="Zbor" loading="lazy" />
+      </a>
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/60 aramiu.jpg" alt="Aramiu" loading="lazy" />
+      </a>
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/74 toamna.jpg" alt="Toamnă" loading="lazy" />
+      </a>
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/69 dimineata.jpg" alt="Dimineață" loading="lazy" />
+      </a>
+      <a href="/galerie" class="gallery-item">
+        <img src="/images/21 trompetisti.jpg" alt="Trompețiști" loading="lazy" />
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="/galerie" class="btn-outline">Vezi toate lucrările</a>
+    </div>
+  </section>
+
+  <!-- PRINTURI BANNER - ascuns temporar -->
+  <!-- <section class="prints-banner">
+    <div class="prints-text">
+      <h2>Poartă o lucrare a Elisabetei cu tine</h2>
+      <p>Printuri de calitate superioară după lucrările originale, disponibile în mai multe formate. Fiecare print este o fereastră spre universul ei de culoare.</p>
+    </div>
+    <a href="/printuri" class="btn-accent">Vezi printurile disponibile</a>
+  </section> -->
+
+</Layout>
+
+<style>
+  .hero {
+    padding: 10rem var(--gutter) 5rem;
+    max-width: var(--container);
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-years {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--cream-dim);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-painting {
+    margin-top: 4rem;
+    width: 100%;
+  }
+
+  .hero-painting {
+    margin-top: 4rem;
+    width: 100%;
+  }
+
+  /* Rama: foto + 10px spatiu + linie 1 + 10px spatiu + linie 2 */
+  .rama {
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(196,98,26,0.65);
+    box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px rgba(196,98,26,0.65),
+                0 20px 60px rgba(0,0,0,0.5), 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero-painting img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .intro {
+    padding: 7rem 2rem;
+    max-width: 660px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.6;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--cream-dim);
+    margin-bottom: 2rem;
+  }
+
+  .intro-link {
+    color: var(--accent-light);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .gallery-preview {
+    padding: 0 var(--gutter) 7rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    display: block;
+    aspect-ratio: 4/3;
+    position: relative;
+    outline: 1px solid rgba(196,98,26,0.55);
+    outline-offset: 2px;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 3px 10px rgba(0,0,0,0.25);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+
+  .prints-banner {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem var(--gutter);
+    max-width: var(--container);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .prints-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .prints-text p {
+    font-size: 0.88rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    max-width: 480px;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 8rem 1.5rem 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .prints-banner { padding: 3rem 1.5rem; flex-direction: column; }
+  }
+</style>

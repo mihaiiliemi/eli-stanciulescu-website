@@ -1,0 +1,475 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lucrari = [
+  { file: "17 DSC_0055.jpg", titlu: "Păpădii Marțiene", tehnica: "Ulei pe pânză", dimensiuni: "80 × 60 cm", an: "2018", disponibilitate: "Disponibil" },
+  { file: "21 trompetisti.jpg", titlu: "Trompețiști", tehnica: "Ulei pe pânză", dimensiuni: "70 × 50 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "41 DSC_0066.jpg", titlu: "Energie", tehnica: "Ulei pe pânză", dimensiuni: "90 × 70 cm", an: "2016", disponibilitate: "Colecție privată" },
+  { file: "60 aramiu.jpg", titlu: "Aramiu", tehnica: "Ulei pe pânză", dimensiuni: "60 × 60 cm", an: "2019", disponibilitate: "Disponibil" },
+  { file: "63 craciun.jpg", titlu: "Crăciun", tehnica: "Acrilic pe pânză", dimensiuni: "50 × 40 cm", an: "2017", disponibilitate: "Disponibil" },
+  { file: "68 zbor.jpg", titlu: "Zbor", tehnica: "Ulei pe pânză", dimensiuni: "100 × 80 cm", an: "2020", disponibilitate: "Disponibil" },
+  { file: "69 dimineata.jpg", titlu: "Dimineață", tehnica: "Ulei pe pânză", dimensiuni: "70 × 50 cm", an: "2019", disponibilitate: "Disponibil" },
+  { file: "74 toamna.jpg", titlu: "Toamnă", tehnica: "Acrilic pe pânză", dimensiuni: "80 × 60 cm", an: "2018", disponibilitate: "Disponibil" },
+  { file: "82 20130414-DSC_1974-Edit.jpg", titlu: "Metamorfoză", tehnica: "Ulei pe pânză", dimensiuni: "60 × 80 cm", an: "2013", disponibilitate: "Disponibil" },
+  { file: "83 20130414-DSC_1978-Edit.jpg", titlu: "Lumini și umbre", tehnica: "Ulei pe pânză", dimensiuni: "60 × 80 cm", an: "2013", disponibilitate: "Colecție privată" },
+  { file: "88 20130608-DSC_7405-Edit.jpg", titlu: "Structuri", tehnica: "Ulei pe pânză", dimensiuni: "90 × 70 cm", an: "2013", disponibilitate: "Disponibil" },
+  { file: "89 20130608-DSC_7407-Edit.jpg", titlu: "Ritm", tehnica: "Acrilic pe pânză", dimensiuni: "70 × 90 cm", an: "2013", disponibilitate: "Disponibil" },
+  { file: "91 P4130001-Edit.jpg", titlu: "Primăvară", tehnica: "Ulei pe pânză", dimensiuni: "50 × 70 cm", an: "2014", disponibilitate: "Disponibil" },
+  { file: "92 P4130008-Edit.jpg", titlu: "Rădăcini", tehnica: "Ulei pe pânză", dimensiuni: "80 × 60 cm", an: "2014", disponibilitate: "Disponibil" },
+  { file: "100 P7191908-Edit.jpg", titlu: "Peisaj interior", tehnica: "Ulei pe pânză", dimensiuni: "100 × 70 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "101 P7191910-Edit.jpg", titlu: "Vibrație", tehnica: "Acrilic pe pânză", dimensiuni: "60 × 60 cm", an: "2015", disponibilitate: "Colecție privată" },
+  { file: "103 P7191914-Edit.jpg", titlu: "Tensiune", tehnica: "Ulei pe pânză", dimensiuni: "80 × 100 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "104 P7191915-Edit.jpg", titlu: "Liniște", tehnica: "Ulei pe pânză", dimensiuni: "70 × 50 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "106 P7191922-Edit.jpg", titlu: "Foc interior", tehnica: "Acrilic pe pânză", dimensiuni: "90 × 70 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "107 P7191924-Edit.jpg", titlu: "Timp suspendat", tehnica: "Ulei pe pânză", dimensiuni: "60 × 80 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "108 P7191926-Edit.jpg", titlu: "Confluențe", tehnica: "Ulei pe pânză", dimensiuni: "80 × 60 cm", an: "2015", disponibilitate: "Colecție privată" },
+  { file: "112 P7191930-Edit.jpg", titlu: "Spirală", tehnica: "Acrilic pe pânză", dimensiuni: "70 × 70 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "114 P7191937-Edit.jpg", titlu: "Ecou", tehnica: "Ulei pe pânză", dimensiuni: "100 × 80 cm", an: "2015", disponibilitate: "Disponibil" },
+  { file: "115 P8023911-Edit.jpg", titlu: "Câmpina", tehnica: "Ulei pe pânză", dimensiuni: "60 × 80 cm", an: "2021", disponibilitate: "Disponibil" },
+  { file: "164 P5280011-Edit.jpg", titlu: "Ultimul orizont", tehnica: "Acrilic pe pânză", dimensiuni: "80 × 100 cm", an: "2022", disponibilitate: "Disponibil" },
+];
+---
+<Layout title="Galerie — Elisabeta Stănciulescu">
+
+  <section class="galerie-page">
+    <div class="galerie-header">
+      <span class="section-label">Opera</span>
+      <h1 class="section-title">Galerie</h1>
+
+      <div class="filtre">
+        <button class="filtru activ" data-filtru="toate">Toate</button>
+        <button class="filtru" data-filtru="Ulei pe pânză">Ulei pe pânză</button>
+        <button class="filtru" data-filtru="Acrilic pe pânză">Acrilic pe pânză</button>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      {lucrari.map((l, i) => (
+        <div class="item" data-tehnica={l.tehnica} data-index={i}
+          data-titlu={l.titlu} data-dimensiuni={l.dimensiuni}
+          data-an={l.an} data-disponibilitate={l.disponibilitate}>
+          <img
+            src={`/images/${encodeURIComponent(l.file)}`}
+            alt={l.titlu}
+            loading="lazy"
+          />
+          <div class="item-overlay">
+            <p class="item-titlu">{l.titlu}</p>
+            <p class="item-tehnica">{l.tehnica}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="Închide">✕</button>
+    <button class="lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
+    <button class="lb-next" id="lb-next" aria-label="Următor">›</button>
+    <div class="lb-img-wrap">
+      <img src="" alt="" id="lb-img" />
+      <div class="lb-caption">
+        <p id="lb-titlu"></p>
+        <p id="lb-tehnica"></p>
+        <p id="lb-detalii"></p>
+        <p id="lb-disponibilitate"></p>
+      </div>
+      <div class="lb-original">
+        <p class="lb-original-msg">Pentru informații despre preț, scrie-ne la <a href="mailto:contact@eli-stanciulescu.com">contact@eli-stanciulescu.com</a>.</p>
+      </div>
+
+      <div class="lb-print">
+        <p class="lb-print-msg">Printurile după lucrările Elisabetei nu sunt disponibile încă. Lasă adresa ta de email și te anunțăm când lansăm comenzile.</p>
+        <form class="lb-form" id="lb-form">
+          <input type="email" placeholder="adresa ta de email" required id="lb-email" />
+          <button type="submit">Anunță-mă</button>
+        </form>
+        <p class="lb-form-ok" id="lb-form-ok">Mulțumim! Te vom anunța la lansare.</p>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  .galerie-page {
+    padding: 10rem var(--gutter) 6rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .galerie-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .filtre {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .filtru {
+    background: none;
+    border: 1px solid rgba(245,240,232,0.2);
+    color: var(--cream-dim);
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .filtru:hover,
+  .filtru.activ {
+    border-color: var(--accent);
+    color: var(--accent-light);
+  }
+
+  .grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    position: relative;
+    cursor: pointer;
+    outline: 1px solid rgba(196,98,26,0.55);
+    outline-offset: 2px;
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 3px 10px rgba(0,0,0,0.25);
+  }
+
+
+  .item:hover img {
+    transform: scale(1.03);
+  }
+
+  .item-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(13,11,11,0.85), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .item:hover .item-overlay {
+    opacity: 1;
+  }
+
+  .item-titlu {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream);
+  }
+
+  .item-tehnica {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
+    margin-top: 0.2rem;
+  }
+
+  .item.ascuns {
+    display: none;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,11,11,0.97);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.deschis {
+    display: flex;
+  }
+
+  .lb-img-wrap {
+    max-width: 90vw;
+    max-height: 90vh;
+    text-align: center;
+  }
+
+  .lb-img-wrap img {
+    max-width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  .lb-caption {
+    margin-top: 1rem;
+  }
+
+  #lb-titlu {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  #lb-tehnica {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--cream-dim);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+  }
+
+  #lb-detalii {
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    margin-top: 0.3rem;
+    letter-spacing: 0.08em;
+  }
+
+  .lb-disp {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .lb-disp.disponibil {
+    color: #7DBF7D;
+  }
+
+  .lb-close {
+    position: fixed;
+    top: 2rem; right: 2rem;
+    background: none;
+    border: none;
+    color: var(--cream-dim);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 501;
+  }
+
+  .lb-close:hover { color: var(--cream); }
+
+  .lb-prev, .lb-next {
+    position: fixed;
+    top: 50%; transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cream-dim);
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: color 0.2s;
+    z-index: 501;
+    line-height: 1;
+  }
+
+  .lb-prev { left: 1rem; }
+  .lb-next { right: 1rem; }
+  .lb-prev:hover, .lb-next:hover { color: var(--accent-light); }
+
+  .lb-original {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .lb-original-msg {
+    font-size: 0.8rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+  }
+
+  .lb-original-msg a {
+    color: var(--accent-light);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .lb-original-msg a:hover { color: var(--cream); }
+
+  .lb-print {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .lb-print-msg {
+    font-size: 0.8rem;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .lb-form {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lb-form input {
+    background: rgba(245,240,232,0.07);
+    border: 1px solid rgba(245,240,232,0.2);
+    color: var(--cream);
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    width: 240px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .lb-form input:focus {
+    border-color: var(--accent);
+  }
+
+  .lb-form button {
+    background: var(--accent);
+    color: var(--cream);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s;
+  }
+
+  .lb-form button:hover { background: var(--accent-light); }
+
+  .lb-form-ok {
+    display: none;
+    font-size: 0.82rem;
+    color: var(--accent-light);
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .grid { columns: 2; }
+    .galerie-page { padding: 8rem 1.5rem 4rem; }
+  }
+
+  @media (max-width: 480px) {
+    .grid { columns: 1; }
+  }
+</style>
+
+<script>
+  const items = Array.from(document.querySelectorAll('.item')) as HTMLElement[];
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbTitlu = document.getElementById('lb-titlu')!;
+  const lbTehnica = document.getElementById('lb-tehnica')!;
+  const lbDetalii = document.getElementById('lb-detalii')!;
+  const lbDisponibilitate = document.getElementById('lb-disponibilitate')!;
+  const lbClose = document.getElementById('lb-close')!;
+  const lbPrev = document.getElementById('lb-prev')!;
+  const lbNext = document.getElementById('lb-next')!;
+
+  let currentIndex = 0;
+  let visibleItems: HTMLElement[] = [...items];
+
+  function updateVisible() {
+    visibleItems = items.filter(i => !i.classList.contains('ascuns'));
+  }
+
+  function openLightbox(item: HTMLElement) {
+    updateVisible();
+    currentIndex = visibleItems.indexOf(item);
+    showImage(currentIndex);
+    lightbox.classList.add('deschis');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showImage(index: number) {
+    const item = visibleItems[index];
+    const img = item.querySelector('img') as HTMLImageElement;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbTitlu.textContent = item.dataset.titlu || '';
+    lbTehnica.textContent = item.dataset.tehnica || '';
+    lbDetalii.textContent = [item.dataset.dimensiuni, item.dataset.an].filter(Boolean).join(' · ');
+    const disp = item.dataset.disponibilitate || '';
+    lbDisponibilitate.textContent = disp;
+    lbDisponibilitate.className = disp === 'Disponibil' ? 'lb-disp disponibil' : 'lb-disp';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('deschis');
+    document.body.style.overflow = '';
+    lbForm.style.display = 'flex';
+    lbFormOk.style.display = 'none';
+    lbForm.reset();
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  lbPrev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+    showImage(currentIndex);
+  });
+
+  lbNext.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % visibleItems.length;
+    showImage(currentIndex);
+  });
+
+  // Form email
+  const lbForm = document.getElementById('lb-form') as HTMLFormElement;
+  const lbFormOk = document.getElementById('lb-form-ok')!;
+  lbForm.addEventListener('submit', e => {
+    e.preventDefault();
+    lbForm.style.display = 'none';
+    lbFormOk.style.display = 'block';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('deschis')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbPrev.click();
+    if (e.key === 'ArrowRight') lbNext.click();
+  });
+
+  const filtre = document.querySelectorAll('.filtru');
+  filtre.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtre.forEach(b => b.classList.remove('activ'));
+      btn.classList.add('activ');
+      const filtru = (btn as HTMLElement).dataset.filtru!;
+      items.forEach(item => {
+        if (filtru === 'toate' || item.dataset.tehnica === filtru) {
+          item.classList.remove('ascuns');
+        } else {
+          item.classList.add('ascuns');
+        }
+      });
+    });
+  });
+</script>

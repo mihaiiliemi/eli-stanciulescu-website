@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Despre — Elisabeta Stănciulescu">
+
+  <section class="despre-page">
+
+    <div class="despre-header">
+      <span class="section-label">Povestea ei</span>
+      <h1 class="section-title">Elisabeta Stănciulescu</h1>
+      <p class="despre-subtitle">In Memoriam 1950 — 2022</p>
+    </div>
+
+    <div class="despre-bio">
+      <p>Născută în 1950 la Câmpina, România, Elisabeta Stănciulescu a absolvit Institutul de Arte Plastice „Nicolae Grigorescu", București. Membră a Uniunii Artiștilor Plastici din România, și-a dedicat întreaga viață familiei și artei.</p>
+      <p>A lăsat în urmă o serie importantă de lucrări, schițe și o muncă de peste 50 de ani în pictură, cu accente moderne și o cromatică spectaculoasă.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="citate">
+      <div class="citat">
+        <blockquote>
+          „Unitatea în diversitate ar putea fi o definiție adecvată a picturilor artistei. Este o artă colaborativă, o construcție, o editare de secvențe nemaivăzute până acum. Totul ca un film în care s-ar putea să te regăsești, dacă ai răbdarea și curajul să accepți că nu mai ești ca ieri, iar mâine vei fi altfel decât azi. Revenind mereu la metafore pentru aceste secvențe, Elisabeta Stănciulescu eliberează universul din neant și îl arată fără ostentație, în structuri uimitoare."
+        </blockquote>
+        <cite>Serghie Bucur — critic de artă, jurnalist, istoric</cite>
+      </div>
+
+      <div class="citat">
+        <blockquote>
+          „Lucrările rezumă căutarea artistei, intuițiile care nu sunt despre nici un fel de metodologie, ci mai degrabă despre a-și lua instinctul creativ și libertatea în fața unei pânze albe și a transfera un univers senzorial complex prin culoare pe ea. Pe lângă impactul vizual puternic al culorilor, linia este un lait-motiv, ca un element structural al viziunii artistei. Dreaptă, răsucită, abia desenată sau scârțâită, linia creează spații, forme și jocuri de umbră și lumină care dezvăluie dorințele sufletului artistului."
+        </blockquote>
+        <cite>Dan Rădulescu — istoric de artă</cite>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="despre-cta">
+      <a href="/galerie" class="btn-outline">Vezi galeria de lucrări</a>
+      <a href="/printuri" class="btn-accent">Cumpără un print</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <div class="contact">
+      <span class="section-label" style="text-align:center; display:block;">Contact</span>
+      <h2 class="contact-title">Scrieți-ne</h2>
+      <p class="contact-text">Pentru informații despre lucrări, prețuri sau colaborări, ne puteți contacta la:</p>
+      <a href="mailto:contact@eli-stanciulescu.com" class="contact-email">contact@eli-stanciulescu.com</a>
+      <div class="contact-social">
+        <a href="https://www.facebook.com/elistanciulescupictura/" target="_blank" rel="noopener">Facebook</a>
+        <span>·</span>
+        <a href="https://www.instagram.com/eli_stanciulescu_pictura/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+
+  </section>
+
+</Layout>
+
+<style>
+  .despre-page {
+    padding: 10rem var(--gutter) 6rem;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .despre-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .despre-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--cream-dim);
+    margin-top: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .despre-bio {
+    max-width: 680px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .despre-bio p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--cream-dim);
+    margin-bottom: 1rem;
+  }
+
+  .citate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .citat {
+    border-left: 1px solid var(--accent);
+    padding-left: 2rem;
+  }
+
+  .citat blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .citat cite {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-style: normal;
+  }
+
+  .despre-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* CONTACT */
+  .contact {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .contact-text {
+    font-size: 0.9rem;
+    color: var(--cream-dim);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--accent-light);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+    margin-bottom: 2rem;
+  }
+
+  .contact-email:hover { color: var(--cream); }
+
+  .contact-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+  }
+
+  .contact-social a {
+    color: var(--cream-dim);
+    transition: color 0.3s;
+  }
+
+  .contact-social a:hover { color: var(--accent-light); }
+
+  @media (max-width: 768px) {
+    .despre-page { padding: 8rem 1.5rem 4rem; }
+    .citate { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
